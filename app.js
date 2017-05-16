@@ -28,7 +28,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   store: new MongoStore( { mongooseConnection: mongoose.connection })
-}))
+}));
 
 passport.serializeUser((user, cb) => {
   cb(null, user.id);
@@ -99,7 +99,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')))
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const index = require('./routes/index');
